@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Environments and secrets
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Local datasets and generated data
+data/raw/
+data/processed/
+
+# Trained models and checkpoints
+models/
+checkpoints/
+*.pkl
+*.joblib
+*.h5
+*.pt
+*.pth
+
+# Local runs and outputs
+outputs/
+logs/
+mlruns/
+
+# IDE and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
