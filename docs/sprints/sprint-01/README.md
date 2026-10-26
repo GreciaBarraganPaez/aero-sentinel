@@ -27,3 +27,16 @@ For every issue moved to **Done**:
 5. Update this sprint index. If the documentation PR is not yet merged, link to the branch/PR and update to `main` once merged.
 
 **Important:** A GitHub issue being closed does not prove that all proposed future research has been completed. Unfinished EDA, CI and early-warning work remains tracked in separate open issues.
+
+## Grecia's assigned Sprint 1 issues — work in progress
+
+These records document **work already implemented**, **proposed research ideas** and **unverified acceptance criteria** separately. Issues remain open until the outstanding checks are completed.
+
+| Issue | Current status | Research and technical notes |
+| --- | --- | --- |
+| [#1](https://github.com/GreciaBarraganPaez/aero-sentinel/issues/1) | Open — team/professor alignment pending | [Research scope, hypotheses and success criteria](grecia-research-scope.md) |
+| [#2](https://github.com/GreciaBarraganPaez/aero-sentinel/issues/2) | Open — source provenance, SHA-256 and team checks pending | [NASA dataset provenance and integrity](grecia-dataset-provenance.md) |
+| [#4](https://github.com/GreciaBarraganPaez/aero-sentinel/issues/4) | Open — deeper EDA interpretation pending | [EDA evidence, limitations and proposed experiments](grecia-eda-notes.md) |
+| [#5](https://github.com/GreciaBarraganPaez/aero-sentinel/issues/5) | Open — teammate reproducibility pending | [Repository workflow and reproducibility](grecia-workflow-reproducibility.md) |
+
+The closed work in [#3](issue-03-data-schema-quality.md) and [#9](issue-09-rul-baseline.md) is already documented above. The notes for open issues are **not closure records** and do not imply final approval.

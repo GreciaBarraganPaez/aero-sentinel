@@ -20,6 +20,16 @@ Define the project scope and establish a reproducible exploratory analysis of NA
 
 - [x] #9 FD001 Random Forest RUL baseline — closed 2026-10-26 14:24:42 UTC; [evidence](../sprints/sprint-01/issue-09-rul-baseline.md)
 
+## Grecia's assigned-issue documentation (prepared 2026-10-26)
+
+- [#1 research scope and hypotheses](../sprints/sprint-01/grecia-research-scope.md): proposed research question, hypotheses, metrics, MVP scope and **pending** professor/team approval.
+- [#2 dataset provenance](../sprints/sprint-01/grecia-dataset-provenance.md): NASA source attribution, local data structure, hash commands and **pending** verified manifest.
+- [#4 EDA notes](../sprints/sprint-01/grecia-eda-notes.md): exact implemented plots, scientific cautions, and **proposed** deeper analysis.
+- [#5 workflow](../sprints/sprint-01/grecia-workflow-reproducibility.md): Git/PR process, documentation gate, team verification matrix and **pending** teammate checks.
+- Closed issues [#3](../sprints/sprint-01/issue-03-data-schema-quality.md) and [#9](../sprints/sprint-01/issue-09-rul-baseline.md) have separate historical closure records.
+
+**Note:** these new notes document progress; they do not close #1, #2, #4 or #5 or claim unverified approvals, hashes or team test runs.
+
 ## Work completed
 
 - GreciaBarraganPaez: C-MAPSS schema and quality validation, dataset summaries and synthetic tests ([PR #7](https://github.com/GreciaBarraganPaez/aero-sentinel/pull/7)).
