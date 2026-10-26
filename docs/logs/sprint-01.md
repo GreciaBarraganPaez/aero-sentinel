@@ -3,7 +3,7 @@
 **Project:** Aero Sentinel  
 **Period:** CW 43–44, 2026  
 **Sprint update:** CW 45  
-**Status:** Not yet documented
+**Status:** Partial evidence recorded on 2026-10-26; CW45 update pending
 
 ## Sprint goal
 
@@ -13,46 +13,50 @@ Define the project scope and establish a reproducible exploratory analysis of NA
 
 - [ ] #1 Define research scope and success criteria
 - [ ] #2 Download and document NASA C-MAPSS FD001
-- [ ] #3 Inspect dataset schema and quality
+- [x] #3 Inspect dataset schema and quality — closed 2026-10-26 14:22:21 UTC; [evidence](../sprints/sprint-01/issue-03-data-schema-quality.md)
 - [ ] #4 Exploratory analysis of sensor behavior
 - [ ] #5 Establish repository workflow and reproducibility
 - [ ] #6 Prepare sprint update and evidence log
 
+- [x] #9 FD001 Random Forest RUL baseline — closed 2026-10-26 14:24:42 UTC; [evidence](../sprints/sprint-01/issue-09-rul-baseline.md)
+
 ## Work completed
 
-*Add only completed work, including who did it and when.*
+- GreciaBarraganPaez: C-MAPSS schema and quality validation, dataset summaries and synthetic tests ([PR #7](https://github.com/GreciaBarraganPaez/aero-sentinel/pull/7)).
+- GreciaBarraganPaez: FD001 Random Forest RUL baseline, holdout/test evaluation and tests ([PR #8](https://github.com/GreciaBarraganPaez/aero-sentinel/pull/8)).
+- Full closure records: [Sprint 01 completed index](../sprints/sprint-01/README.md).
 
 ## Findings and results
 
-*Record observations supported by notebooks, figures or measurements.*
+Local run on 2026-10-26: 10 unit tests passed. FD001 official test Random Forest MAE 13.50 cycles, RMSE 18.07 cycles (100 engines); see [experiment record](../sprints/sprint-01/issue-09-rul-baseline.md). No GitHub CI run was claimed.
 
 ## Decisions and rationale
 
-*Explain modeling, preprocessing or evaluation decisions and their trade-offs.*
+Validation uses engine-disjoint splits; training RUL capped at 125 cycles. C-MAPSS does not label exact physical degradation onset, so RUL accuracy is not proof of early-warning quality.
 
 ## Blockers and risks
 
-*Describe open problems and what help or action is needed.*
+Open: team setup verification, provenance details, deeper EDA, repeated validation, early-warning protocol, and CW45 presentation.
 
 ## Evidence
 
 | Item | Link | What it demonstrates |
 | --- | --- | --- |
-| GitHub Issue / PR | | |
-| Commit | | |
-| Notebook or script | | |
-| Figure / result | | |
+| [#3](https://github.com/GreciaBarraganPaez/aero-sentinel/issues/3) / [PR #7](https://github.com/GreciaBarraganPaez/aero-sentinel/pull/7) | [closure record](../sprints/sprint-01/issue-03-data-schema-quality.md) | Schema/quality validation |
+| [#9](https://github.com/GreciaBarraganPaez/aero-sentinel/issues/9) / [PR #8](https://github.com/GreciaBarraganPaez/aero-sentinel/pull/8) | [closure record](../sprints/sprint-01/issue-09-rul-baseline.md) | RUL model and metrics |
+| Code | `src/aero_sentinel/data.py`, `dataset_overview.py`, `rul_baseline.py` | Reproducible analysis/model |
+| Generated results (local, gitignored) | `results/figures/` | Plots and JSON/CSV reports; not committed |
 
 ## AI coding-agent usage (if applicable)
 
 | Date | Tool | Task / prompt summary | Output used | How it was verified |
 | --- | --- | --- | --- | --- |
-| | | | | |
+| 2026-10-26 | ChatGPT + GitHub integration | Draft code, tests, docs for data and RUL baseline | Merged PRs #7 and #8 | Local pytest: 10 passed; model metrics from local run; no CI |
 
 ## Sprint review
 
-**What was achieved:** TBD  
-**What remains open:** TBD  
-**Next sprint priorities:** TBD
+**What was achieved:** data schema/quality pipeline and first FD001 RUL baseline; see [completed evidence](../sprints/sprint-01/README.md)  
+**What remains open:** #1, #2, #4, #5 and #6 are still open; CW45 update not yet delivered  
+**Next sprint priorities:** #21 MVP requirements, #22 preprocessing, #13 alert protocol
 
 > Keep this log factual: planned work is not evidence of completed work.
