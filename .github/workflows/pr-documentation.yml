@@ -1,0 +1,94 @@
+name: PR Documentation Gate
+
+on:
+  pull_request_target:
+    types: [opened, reopened, edited, synchronize, ready_for_review]
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  documentation-gate:
+    name: documentation-gate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate PR evidence and create draft comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            // API-only validation. Do not checkout or execute untrusted PR code.
+            const pr = context.payload.pull_request;
+            const body = pr.body || '';
+            const errors = [];
+            const headings = [
+              'Sprint', 'Linked issue(s)', 'Summary', 'Code locations',
+              'Sprint documentation', 'Verification',
+              'Limitations and follow-ups', 'Issue closure comment draft'
+            ];
+            const section = (name) => {
+              const prefix = '## ' + name;
+              const start = body.indexOf(prefix);
+              if (start < 0 || (start > 0 && body[start - 1] !== '\n')) return '';
+              const from = start + prefix.length;
+              const next = body.indexOf('\n## ', from);
+              return body.slice(from, next < 0 ? undefined : next)
+                .replace(/<!--[\s\S]*?-->/g, '').trim();
+            };
+            for (const name of headings) {
+              const value = section(name);
+              if (!value || /\bTODO\b|\bTBD\b/i.test(value)) {
+                errors.push('Complete the PR section: ' + name);
+              }
+            }
+            const sprint = section('Sprint');
+            const match = sprint.match(/^(Sprint [1-4]|Delivery|Ongoing)$/i);
+            if (!match) errors.push('Sprint must be exactly Sprint 1–4, Delivery or Ongoing.');
+            const folder = match
+              ? (/^Sprint /i.test(match[1])
+                  ? 'sprint-0' + match[1].slice(-1)
+                  : match[1].toLowerCase())
+              : null;
+            if (!/#\d+/.test(section('Linked issue(s)'))) {
+              errors.push('Link at least one issue using #NN.');
+            }
+            const {owner, repo} = context.repo;
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              owner, repo, pull_number: pr.number, per_page: 100
+            });
+            const docs = files.map(f => f.filename).filter(f =>
+              /^docs\/sprints\/(sprint-0[1-4]|delivery|ongoing)\/.+\.md$/.test(f) &&
+              f.status !== 'removed'
+            );
+            if (!docs.length) {
+              errors.push('Add or update a Markdown sprint record in docs/sprints/sprint-XX/ (or delivery/ or ongoing/).');
+            }
+            if (folder && !docs.some(f => f.startsWith('docs/sprints/' + folder + '/'))) {
+              errors.push('Sprint must match the folder of the changed sprint record.');
+            }
+            if (docs.length && !docs.some(f => section('Sprint documentation').includes(f))) {
+              errors.push('Name an actual changed sprint record path in Sprint documentation.');
+            }
+            if (context.payload.action === 'opened') {
+              await github.rest.issues.createComment({
+                owner, repo, issue_number: pr.number,
+                body: [
+                  '## 📝 Automatic issue closure comment draft',
+                  'Complete the PR description template before review.',
+                  '',
+                  '**When the linked issue is actually closed, comment with:**',
+                  '- Sprint, owner and real closure timestamp (UTC)',
+                  '- What was implemented and exact source/test paths',
+                  '- How to reproduce, measured results and limitations',
+                  '- Link to the versioned docs/sprints/ record and merged PR',
+                  '',
+                  'The documentation-gate check requires the PR evidence and draft before merge. The final issue comment is posted after closure.'
+                ].join('\n')
+              });
+            }
+            if (errors.length) {
+              core.setFailed(errors.join('\n'));
+            } else {
+              core.info('Documentation gate passed: required PR sections and sprint record present.');
+            }
