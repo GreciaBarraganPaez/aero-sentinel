@@ -10,9 +10,13 @@
 
 Dataset: **NASA C-MAPSS (Commercial Modular Aero-Propulsion System Simulation) turbofan engine simulated run-to-failure data**.
 
-- Project source reference: [NASA C-MAPSS dataset landing page](https://data.nasa.gov/dataset/cmapss-jet-engine-simulated-data).
-- Use the dataset landing page to locate the official download and capture the **exact** download URL, archive filename, version (if published) and access date in the local provenance manifest.
-- Attribution in presentations: "NASA C-MAPSS simulated turbofan engine run-to-failure dataset." Include the official source reference.
+- **Dataset description:** Engine degradation was simulated with the Commercial Modular Aero-Propulsion System Simulation (C-MAPSS). Four subsets (FD001–FD004) represent different combinations of operating conditions and fault modes, with sensor-channel time series describing fault evolution. The dataset is provided by the NASA Ames Prognostics Center of Excellence (PCoE).
+- **NASA dataset reference:** [NASA C-MAPSS dataset landing page](https://data.nasa.gov/dataset/cmapss-jet-engine-simulated-data).
+- **Direct download (NASA PCoE-hosted archive):** [Turbofan Engine Degradation Simulation Data Set (ZIP)](https://phm-datasets.s3.amazonaws.com/NASA/6.+Turbofan+Engine+Degradation+Simulation+Data+Set.zip).
+- **Dataset citation:** A. Saxena and K. Goebel (2008). *Turbofan Engine Degradation Simulation Data Set*. NASA Prognostics Data Repository, NASA Ames Research Center, Moffett Field, CA.
+- **Distinction:** The Saxena et al. paper *Damage Propagation Modeling for Aircraft Engine Run-to-Failure Simulation* explains the simulation methodology; it is **not** the ZIP containing the FD001–FD004 raw data.
+- **Local status (user-reported, 2026-10-27):** The required data files have been copied into the user's local repository. This has not been independently checked; raw files remain intentionally excluded from Git.
+- Attribution in presentations: "NASA C-MAPSS simulated turbofan engine run-to-failure dataset." Include the citation above.
 - **Do not claim** a specific downloaded archive checksum, version or licensing condition without verifying it against the source.
 
 ## 2. Local directory layout
@@ -79,7 +83,7 @@ Get-ChildItem data/raw -Filter "*.txt" | Sort-Object Name |
 | FD004 train/test/RUL | 3 | Pending | Pending | Pending |
 
 Also record:
-- **Actual downloaded source URL:** Pending verification
+- **Dataset download URL:** https://phm-datasets.s3.amazonaws.com/NASA/6.+Turbofan+Engine+Degradation+Simulation+Data+Set.zip (documented source; actual downloaded archive not independently verified)
 - **Download date (UTC):** Pending verification
 - **Archive filename and version:** Pending verification
 - **Extracted by:** Pending verification
