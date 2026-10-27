@@ -10,14 +10,18 @@
 
 Dataset: **NASA C-MAPSS (Commercial Modular Aero-Propulsion System Simulation) turbofan engine simulated run-to-failure data**.
 
-- Project source reference: [NASA C-MAPSS dataset landing page](https://data.nasa.gov/dataset/cmapss-jet-engine-simulated-data).
-- Use the dataset landing page to locate the official download and capture the **exact** download URL, archive filename, version (if published) and access date in the local provenance manifest.
-- Attribution in presentations: "NASA C-MAPSS simulated turbofan engine run-to-failure dataset." Include the official source reference.
+- **Dataset description:** Engine degradation was simulated with the Commercial Modular Aero-Propulsion System Simulation (C-MAPSS). Four subsets (FD001–FD004) represent different combinations of operating conditions and fault modes, with sensor-channel time series describing fault evolution. The dataset is provided by the NASA Ames Prognostics Center of Excellence (PCoE).
+- **NASA dataset reference:** [NASA C-MAPSS dataset landing page](https://data.nasa.gov/dataset/cmapss-jet-engine-simulated-data).
+- **Direct download (NASA PCoE-hosted archive):** [Turbofan Engine Degradation Simulation Data Set (ZIP)](https://phm-datasets.s3.amazonaws.com/NASA/6.+Turbofan+Engine+Degradation+Simulation+Data+Set.zip).
+- **Dataset citation:** A. Saxena and K. Goebel (2008). *Turbofan Engine Degradation Simulation Data Set*. NASA Prognostics Data Repository, NASA Ames Research Center, Moffett Field, CA.
+- **Distinction:** The Saxena et al. paper *Damage Propagation Modeling for Aircraft Engine Run-to-Failure Simulation* explains the simulation methodology; it is **not** the ZIP containing the FD001–FD004 raw data.
+- **Local status (user-reported, 2026-10-27):** The required data files have been copied into the user's local repository. This has not been independently checked. The project owner decided on 2026-10-27 to version the 12 raw NASA C-MAPSS text files in Git; their GitHub upload is still pending until a local commit/push is confirmed.
+- Attribution in presentations: "NASA C-MAPSS simulated turbofan engine run-to-failure dataset." Include the citation above.
 - **Do not claim** a specific downloaded archive checksum, version or licensing condition without verifying it against the source.
 
 ## 2. Local directory layout
 
-Raw data is deliberately **not committed** to Git:
+The **12 original NASA C-MAPSS text files are intended to be committed to Git** so that teammates receive the same inputs with the repository. Generated/processed data remain excluded. The files listed below must be committed from the owner's local machine:
 
 ```text
 data/raw/
@@ -45,14 +49,15 @@ cd aero-sentinel
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install -e ".[dev]"
-# Manually download and extract the NASA data files into data/raw/.
+# Once the dataset commit has been merged, the 12 files will already be present in data/raw/ after cloning.
+# Before that merge, obtain the official NASA ZIP and extract its 12 .txt files into data/raw/.
 python -m pytest -q
 python -m aero_sentinel.first_data_test
 python -m aero_sentinel.dataset_overview
 python -m aero_sentinel.rul_baseline
 ```
 
-Generated reports/plots/predictions are written locally to `results/figures/`, not committed. A local run on 2026-10-26 reported **10 passing tests** and official FD001 test MAE **13.50**, RMSE **18.07** cycles; see [baseline report](../../rul-baseline.md). Those numbers do not prove another teammate has reproduced the run.
+Generated reports/plots/predictions are written locally to `results/figures/`. Commit only intentional reproducible outputs; avoid committing unrelated generated files. A local run on 2026-10-26 reported **10 passing tests** and official FD001 test MAE **13.50**, RMSE **18.07** cycles; see [baseline report](../../rul-baseline.md). Those numbers do not prove another teammate has reproduced the run.
 
 ## 5. Integrity manifest (fill from each actual local copy)
 
@@ -79,7 +84,7 @@ Get-ChildItem data/raw -Filter "*.txt" | Sort-Object Name |
 | FD004 train/test/RUL | 3 | Pending | Pending | Pending |
 
 Also record:
-- **Actual downloaded source URL:** Pending verification
+- **Dataset download URL:** https://phm-datasets.s3.amazonaws.com/NASA/6.+Turbofan+Engine+Degradation+Simulation+Data+Set.zip (documented source; actual downloaded archive not independently verified)
 - **Download date (UTC):** Pending verification
 - **Archive filename and version:** Pending verification
 - **Extracted by:** Pending verification
@@ -95,9 +100,9 @@ Also record:
 ## 7. Teammate reproducibility checklist
 
 Each teammate should independently confirm:
-- [ ] Official NASA source accessed and downloaded.
-- [ ] All 12 files extracted to the expected local directory.
-- [ ] No raw data, local secrets or generated results are staged for Git.
+- [ ] Confirm the repository contains the 12 original NASA text files under `data/raw/` after the dataset PR is merged.
+- [ ] Verify the repository copy against the NASA source and recorded SHA-256 hashes.
+- [ ] No secrets, unrelated archives, processed data or accidental generated results are staged for Git.
 - [ ] Dependencies install and tests run in their environment.
 - [ ] FD001 quality summary and baseline can be regenerated.
 - [ ] Hashes and file sizes agree with the agreed dataset version.
@@ -112,4 +117,4 @@ Record each teammate's GitHub handle, verification date and command outputs in t
 - Different FD subsets have different operating regimes and fault configurations.
 - Keep the official test data separate from model selection.
 
-**Issue #2 closed:** 2026-10-27 09:46:52 UTC for dataset acquisition and documentation. Outstanding actual hashes, source metadata and team reproduction are explicitly tracked in [#33](https://github.com/GreciaBarraganPaez/aero-sentinel/issues/33). See [closure record](issue-02-closure.md).
+**Issue #2 closed:** 2026-10-27 09:46:52 UTC for dataset acquisition and documentation. Outstanding dataset upload verification, actual hashes, source metadata and team reproduction are explicitly tracked in [#33](https://github.com/GreciaBarraganPaez/aero-sentinel/issues/33). See [closure record](issue-02-closure.md).
