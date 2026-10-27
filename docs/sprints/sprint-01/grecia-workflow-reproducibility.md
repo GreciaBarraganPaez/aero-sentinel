@@ -3,7 +3,7 @@
 **Owner:** GreciaBarraganPaez  
 **Sprint:** Sprint 1 (CW43–44, 2026)  
 **Issue:** [#5](https://github.com/GreciaBarraganPaez/aero-sentinel/issues/5)  
-**Status:** Initial workflow implemented; independent teammate verification **pending**  
+**Status:** Workflow/documentation issue #5 closed 2026-10-27; independent teammate verification **pending in follow-up #34**.  
 **Prepared:** 2026-10-26
 
 ## 1. Repository organization
@@ -109,4 +109,4 @@ These are process requirements, **not** a claim that every contributor has alrea
 - [ ] Add automated unit-test CI if desired ([#20](https://github.com/GreciaBarraganPaez/aero-sentinel/issues/20)).
 - [ ] Record the verified team results in `docs/logs/sprint-01.md`.
 
-**Closure condition for #5:** reproducibility and ignore-rule checks verified across the team. Documentation alone does not complete that verification.
+**Issue #5 closed:** 2026-10-27 09:46:57 UTC for the implemented repository workflow and documentation. Independent teammate checks remain **unverified** and are tracked in [#34](https://github.com/GreciaBarraganPaez/aero-sentinel/issues/34). See [closure record](issue-05-closure.md).
