@@ -19,8 +19,8 @@ env/
 # Jupyter
 .ipynb_checkpoints/
 
-# Local datasets and generated data
-data/raw/
+# Datasets: commit the 12 original NASA C-MAPSS text files in data/raw/.
+# Keep derived or processed datasets local.
 data/processed/
 
 # Trained models and checkpoints
