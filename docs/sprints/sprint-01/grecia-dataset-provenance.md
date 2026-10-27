@@ -3,7 +3,7 @@
 **Owner:** GreciaBarraganPaez  
 **Sprint:** Sprint 1 (CW43–44, 2026)  
 **Issue:** [#2](https://github.com/GreciaBarraganPaez/aero-sentinel/issues/2)  
-**Status:** Data available locally; provenance and team reproducibility **not yet fully verified**  
+**Status:** Acquisition/documentation issue #2 closed 2026-10-27; unverified integrity/provenance and teammate reproduction transferred to #33.  
 **Prepared:** 2026-10-26
 
 ## 1. Source and attribution
@@ -112,4 +112,4 @@ Record each teammate's GitHub handle, verification date and command outputs in t
 - Different FD subsets have different operating regimes and fault configurations.
 - Keep the official test data separate from model selection.
 
-**Closure condition for #2:** source and acquisition provenance verified, hashes/sizes recorded from real files and teammate reproduction confirmed. Until then, keep the issue open.
+**Issue #2 closed:** 2026-10-27 09:46:52 UTC for dataset acquisition and documentation. Outstanding actual hashes, source metadata and team reproduction are explicitly tracked in [#33](https://github.com/GreciaBarraganPaez/aero-sentinel/issues/33). See [closure record](issue-02-closure.md).

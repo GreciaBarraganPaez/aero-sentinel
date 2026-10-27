@@ -9,7 +9,10 @@ This directory is a **version-controlled record** of issues actually closed duri
 
 | Issue | Work | Closed (UTC) | Evidence |
 | --- | --- | --- | --- |
+| [#1](https://github.com/GreciaBarraganPaez/aero-sentinel/issues/1) | Research scope and success criteria | 2026-10-27 09:46:48 | [issue-01-closure.md](issue-01-closure.md) |
+| [#2](https://github.com/GreciaBarraganPaez/aero-sentinel/issues/2) | NASA data acquisition and documentation | 2026-10-27 09:46:52 | [issue-02-closure.md](issue-02-closure.md) |
 | [#3](https://github.com/GreciaBarraganPaez/aero-sentinel/issues/3) | C-MAPSS schema and quality checks | 2026-10-26 14:22:21 | [issue-03-data-schema-quality.md](issue-03-data-schema-quality.md) |
+| [#5](https://github.com/GreciaBarraganPaez/aero-sentinel/issues/5) | Repository workflow and documentation | 2026-10-27 09:46:57 | [issue-05-closure.md](issue-05-closure.md) |
 | [#9](https://github.com/GreciaBarraganPaez/aero-sentinel/issues/9) | FD001 Random Forest RUL baseline | 2026-10-26 14:24:42 | [issue-09-rul-baseline.md](issue-09-rul-baseline.md) |
 
 ## Related merged pull requests
@@ -30,13 +33,13 @@ For every issue moved to **Done**:
 
 ## Grecia's assigned Sprint 1 issues — work in progress
 
-These records document **work already implemented**, **proposed research ideas** and **unverified acceptance criteria** separately. Issues remain open until the outstanding checks are completed.
+These records document **work already implemented**, **proposed research ideas** and **unverified acceptance criteria** separately. Follow-up verification remains open separately as #33 and #34.
 
 | Issue | Current status | Research and technical notes |
 | --- | --- | --- |
-| [#1](https://github.com/GreciaBarraganPaez/aero-sentinel/issues/1) | Open — team/professor alignment pending | [Research scope, hypotheses and success criteria](grecia-research-scope.md) |
-| [#2](https://github.com/GreciaBarraganPaez/aero-sentinel/issues/2) | Open — source provenance, SHA-256 and team checks pending | [NASA dataset provenance and integrity](grecia-dataset-provenance.md) |
+| [#1](https://github.com/GreciaBarraganPaez/aero-sentinel/issues/1) | Closed — owner confirmed professor approval; detailed alert protocol later | [Research scope, hypotheses and success criteria](grecia-research-scope.md) |
+| [#2](https://github.com/GreciaBarraganPaez/aero-sentinel/issues/2) | Closed — verification moved to #33 | [NASA dataset provenance and integrity](grecia-dataset-provenance.md) |
 | [#4](https://github.com/GreciaBarraganPaez/aero-sentinel/issues/4) | Open — deeper EDA interpretation pending | [EDA evidence, limitations and proposed experiments](grecia-eda-notes.md) |
-| [#5](https://github.com/GreciaBarraganPaez/aero-sentinel/issues/5) | Open — teammate reproducibility pending | [Repository workflow and reproducibility](grecia-workflow-reproducibility.md) |
+| [#5](https://github.com/GreciaBarraganPaez/aero-sentinel/issues/5) | Closed — verification moved to #34 | [Repository workflow and reproducibility](grecia-workflow-reproducibility.md) |
 
-The closed work in [#3](issue-03-data-schema-quality.md) and [#9](issue-09-rul-baseline.md) is already documented above. The notes for open issues are **not closure records** and do not imply final approval.
+The closed work in [#3](issue-03-data-schema-quality.md) and [#9](issue-09-rul-baseline.md) is already documented above. For closed #1, #2 and #5, use the corresponding dated closure records above. Open #4 remains research in progress; follow-up verification is tracked in #33 and #34.
