@@ -11,11 +11,11 @@ Define the project scope and establish a reproducible exploratory analysis of NA
 
 ## Planned issues
 
-- [ ] #1 Define research scope and success criteria
-- [ ] #2 Download and document NASA C-MAPSS FD001
+- [x] #1 Define research scope and success criteria — closed 2026-10-27 09:46:48 UTC; [closure](../sprints/sprint-01/issue-01-closure.md)
+- [x] #2 Download and document NASA C-MAPSS FD001 — closed 2026-10-27 09:46:52 UTC; [closure](../sprints/sprint-01/issue-02-closure.md); integrity follow-up #33
 - [x] #3 Inspect dataset schema and quality — closed 2026-10-26 14:22:21 UTC; [evidence](../sprints/sprint-01/issue-03-data-schema-quality.md)
 - [ ] #4 Exploratory analysis of sensor behavior
-- [ ] #5 Establish repository workflow and reproducibility
+- [x] #5 Establish repository workflow and reproducibility — closed 2026-10-27 09:46:57 UTC; [closure](../sprints/sprint-01/issue-05-closure.md); team verification follow-up #34
 - [ ] #6 Prepare sprint update and evidence log
 
 - [x] #9 FD001 Random Forest RUL baseline — closed 2026-10-26 14:24:42 UTC; [evidence](../sprints/sprint-01/issue-09-rul-baseline.md)
@@ -46,7 +46,7 @@ Validation uses engine-disjoint splits; training RUL capped at 125 cycles. C-MAP
 
 ## Blockers and risks
 
-Open: team setup verification, provenance details, deeper EDA, repeated validation, early-warning protocol, and CW45 presentation.
+Open: team setup verification (#34), raw-file integrity/provenance (#33), deeper EDA (#4), repeated validation, early-warning protocol (#13), and CW45 presentation (#6).
 
 ## Evidence
 
@@ -66,7 +66,16 @@ Open: team setup verification, provenance details, deeper EDA, repeated validati
 ## Sprint review
 
 **What was achieved:** data schema/quality pipeline and first FD001 RUL baseline; see [completed evidence](../sprints/sprint-01/README.md)  
-**What remains open:** #1, #2, #4, #5 and #6 are still open; CW45 update not yet delivered  
+**What remains open:** #4 and #6 are open; raw-file integrity/team reproduction are tracked in follow-ups #33 and #34; CW45 update not yet delivered  
 **Next sprint priorities:** #21 MVP requirements, #22 preprocessing, #13 alert protocol
 
 > Keep this log factual: planned work is not evidence of completed work.
+
+## Issue closure update — 2026-10-27
+
+- #1 closed 09:46:48 UTC — professor approval reported by project owner; scope and research limitations documented. Formal approval artifact was not independently retrieved.
+- #2 closed 09:46:52 UTC — acquisition/setup documentation complete; unverified NASA archive metadata, raw-file SHA-256 and teammate reproduction transferred to #33.
+- #5 closed 09:46:57 UTC — repository/workflow documentation complete; unverified teammate environment execution and hygiene checks transferred to #34.
+- Detailed records: [#1](../sprints/sprint-01/issue-01-closure.md), [#2](../sprints/sprint-01/issue-02-closure.md), [#5](../sprints/sprint-01/issue-05-closure.md).
+
+**No new tests or hash computations were run for this closure update.**
