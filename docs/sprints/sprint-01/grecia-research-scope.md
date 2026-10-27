@@ -3,9 +3,9 @@
 **Owner:** GreciaBarraganPaez  
 **Sprint:** Sprint 1 (CW43–44, 2026)  
 **Issue:** [#1](https://github.com/GreciaBarraganPaez/aero-sentinel/issues/1)  
-**Status:** Draft for team/professor alignment — **issue remains open**  
+**Status:** Scoped Sprint 1 deliverable closed 2026-10-27; professor approval reported by owner; final alert details remain for #13/#21.  
 **Prepared:** 2026-10-26  
-**Formal professor approval:** **Not verified; pending**
+**Professor approval:** Confirmed by project owner on 2026-10-27; no independent approval artifact attached.
 
 ## 1. Motivation and problem statement
 
@@ -111,4 +111,4 @@ This wording distinguishes two measurable tasks:
 - Which false-alert cost matters in the simulated setting, and how should we communicate it?
 - How can we avoid overclaiming aviation relevance from synthetic data?
 
-**Closure condition for #1:** team agreement on scope, documented decisions and verified professor approval where required. This draft alone does not close the issue.
+**Issue #1 closed:** 2026-10-27 09:46:48 UTC, on the basis of documented research scope and owner-reported professor approval. See [closure record](issue-01-closure.md). Final operational alert details remain in #13/#21.
